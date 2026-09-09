@@ -4,7 +4,7 @@ class Solution {
     Boolean[][] dp;
     public boolean checkValidString(String s) {
        n=s.length();
-       dp = new Boolean[n+1][n];
+       dp = new Boolean[n][n];
        str=s;
        return backtrack(0,0);
 
