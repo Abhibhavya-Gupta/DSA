@@ -1,0 +1,45 @@
+class Solution {
+    public double fractionalKnapsack(int[] value, int[] weight, int capacity) {
+        // sort wt array -> val/wt
+        int n=weight.length;
+        Item[] items = new Item[n];
+        
+        for(int i=0;i<n;i++)
+        {
+            items[i]=new Item(value[i],weight[i]);
+        }
+        
+        Arrays.sort(items,(a,b)-> Double.compare((double)b.val/b.wt , (double)a.val/a.wt));
+        
+        int i=0;
+        double totalValue=0;
+        while(i<n && capacity>0)
+        {
+            Item item = items[i];
+            int wtToBePut = item.wt; //in the knapsack
+            
+            if(capacity>=wtToBePut)
+            {
+                capacity-=wtToBePut;
+                totalValue+=(double)item.val;
+            }
+            else{
+                double remValToBePut= ((double)item.val/item.wt) * capacity;
+                capacity=0;
+                totalValue+=remValToBePut;
+                
+            }
+            i++;
+        }
+        return totalValue;
+    }
+}
+class Item{
+    int val;
+    int wt;
+    public Item(int val,int wt)
+    {
+        this.val = val;
+        this.wt=wt;
+    }
+}
