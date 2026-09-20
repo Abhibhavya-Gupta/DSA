@@ -13,7 +13,7 @@ class Solution {
         {
             if(myIntervals[i].end>myIntervals[i+1].st)
             {
-                myIntervals[i+1]=myIntervals[i];
+                myIntervals[i+1]=myIntervals[i]; //  due to this testcase : [1 ,11] , [ 2 ,12 ] , [11 , 22] , [1,  100]
                 ans++;
             }
         }
