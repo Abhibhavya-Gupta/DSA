@@ -24,6 +24,6 @@ class Solution {
         }
 
         // Convert List to array
-        return res.toArray(new int[res.size()][]);
+        return res.toArray(new int[res.size()][2]);
     }
 }
