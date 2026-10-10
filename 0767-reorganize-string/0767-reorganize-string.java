@@ -10,32 +10,32 @@ class Solution {
         {
             pq.offer(new Freq(entry.getKey(),entry.getValue()));
         }
-        String s1="";
+        StringBuilder sb = new StringBuilder();
         while(pq.size()>0)
         {
             Freq obj = pq.poll();
-            s1+=obj.c;
+            sb.append(obj.c);
             obj.f--;
             
             Freq obj1=null;
             if(!pq.isEmpty())
             {
             obj1 = pq.poll();
-            s1+=obj1.c;
+            sb.append(obj1.c);
             obj1.f--;
             }
             if(obj.f>0) pq.offer(obj);
             if(obj1!=null && obj1.f>0) pq.offer(obj1);
 
         }
-        for(int i=1;i<s1.length();i++)
+        for(int i=1;i<sb.length();i++)
         {
-            if(s1.charAt(i)==s1.charAt(i-1))
+            if(sb.charAt(i)==sb.charAt(i-1))
             {
                 return "";
             }
         }
-        return s1;
+        return sb.toString();
     }
 }
 class Freq{
