@@ -50,8 +50,7 @@ class Solution {
                 s=m+1;
             }
             else{
-                res1=m;
-                break;
+                return m;
             }   
         }
 
@@ -72,29 +71,11 @@ class Solution {
                 e=m-1;
             }
             else{
-                res2=m;
-                break;
+                return m;
             }   
         }
 
-        System.out.println("res 1: "+res1);
-        System.out.println("res 2: "+res2);
-
-        if(res1==-1 && res2!=-1)
-        {
-            return res2;
-        }
-        else if(res1!=-1 && res2==-1)
-        {
-             
-            return res1;
-        }
-        else if(res1==-1 && res2==-1)
-        {
-            return -1;
-        }
-        
-            return Math.min(res1,res2);
+       return -1;
         
 
 
