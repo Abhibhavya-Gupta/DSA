@@ -1,6 +1,7 @@
 class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
         int l=matrix.length*matrix[0].length;
+        //we can assume the matrix in this question as a 1D sorted array
         return BS(matrix,target,0,l-1);
     }
     public boolean BS(int[][] matrix, int t,int l,int h)
