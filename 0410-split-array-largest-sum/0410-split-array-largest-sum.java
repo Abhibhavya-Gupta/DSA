@@ -6,7 +6,7 @@ class Solution {
             s=Math.max(s,nums[i]);
             e+=nums[i];
         }
-        //start matlab minimum value and end matlab maximum value 
+         //start matlab minimum value(max number in case of k=n) and end matlab maximum value(sum of nums in case of k=1) 
         //inke beech m hi ans exixts
         //so here we will take mid as our ans everytime and reverse engineer the partition sub-arrays accordingly via Binary Search
         
