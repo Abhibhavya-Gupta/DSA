@@ -6,6 +6,10 @@ class Solution {
             s=Math.max(s,nums[i]);
             e+=nums[i];
         }
+        //start matlab minimum value and end matlab maximum value 
+        //inke beech m hi ans exixts
+        //so here we will take mid as our ans everytime and reverse engineer the partition sub-arrays accordingly via Binary Search
+        
         return BS(nums,k,s,e);
         
     }
