@@ -5,7 +5,9 @@ class Solution {
         return ans;
     }
     public void helper(int[] cand,int t,List<Integer> list,int index)
-    {
+    {                                          //-> keeping an index variable so that from rth recursion call we only see/use next elements 
+        //=> basically agar hum niche jo loop hai usko everytime i=0 se start krte to permutations generate ho jaate 
+        //=> usko remove krne k liye taaki sirf unique combinations hi aaye humne i=index se start kiya hai
         if(t==0)
         {
             
