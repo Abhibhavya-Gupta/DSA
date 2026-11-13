@@ -22,25 +22,15 @@ class LRUCache {
         Node node = map.get(key);
 
        
-        if(node.prev==null && node.next==null || node==head) return node.val;
+        if(size==1 || node==head) return node.val;
 
         if(node!=tail)
             {
-                head.prev = node;
-                node.prev.next=node.next;
-                node.next.prev=node.prev;
-                node.next=head;
-                head=node;
-                node.prev=null;
+               moveTheNodeToFirstPosition(node);
             }
             else{
-                tail=tail.prev;
-                tail.next=null;
+                moveTheTailToFirstPosition(node);
 
-                head.prev = node;
-                node.prev=null;
-                node.next=head;
-                head=node;
             }
         return node.val;
     }
@@ -60,21 +50,10 @@ class LRUCache {
             //if fetched node is not tail
             if(node!=tail)
             {
-                head.prev = node;
-                node.prev.next=node.next;
-                node.next.prev=node.prev;
-                node.next=head;
-                node=head;
-                node.prev=null;
+                moveTheNodeToFirstPosition(node);
             }
             else{
-                tail=tail.prev;
-                tail.next=null;
-
-                head.prev = node;
-                node.prev=null;
-                node.next=head;
-                head=node;
+                  moveTheTailToFirstPosition(node);
             }
             //fetched node is tail
             //----
@@ -85,6 +64,33 @@ class LRUCache {
             newNode.val=value;
             insert(newNode);
             }
+    }
+    void moveTheNodeToFirstPosition(Node node)
+    {
+        //first free the node
+        node.prev.next=node.next;
+        node.next.prev=node.prev;
+
+        //now bring it to the first position
+        head.prev = node;
+        //node ka next = node at second position
+        head.prev.next=head;
+
+        head=node;
+        head.prev=null;
+
+    }
+
+    void moveTheTailToFirstPosition(Node node){
+
+        tail=tail.prev;
+
+        head.prev = node;
+        head.prev.next=head;
+        head=node;
+        head.prev=null;
+
+        tail.next=null;
     }
     void remove()
     {
