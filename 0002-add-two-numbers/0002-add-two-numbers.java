@@ -8,6 +8,32 @@
  *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
+//---PSEUDOCODE---
+/**
+Create dummy node
+current = dummy
+carry = 0
+
+WHILE l1 exists OR l2 exists OR carry != 0
+
+    digit1 = l1 value if exists else 0
+    digit2 = l2 value if exists else 0
+
+    sum = digit1 + digit2 + carry
+
+    carry = sum / 10
+    digit = sum % 10
+
+    create new node(digit)
+    attach it to result list
+
+    move current forward
+
+    move l1 forward if possible
+    move l2 forward if possible
+
+RETURN dummy.next
+*/
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
       
